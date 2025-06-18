@@ -1,0 +1,10 @@
+# .gitignore en la raíz de tu proyecto
+.venv/
+__pycache__/
+.env
+.idea/
+*.iml
+misc.xml
+modules.xml
+vcs.xml
+*.http

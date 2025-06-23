@@ -1,5 +1,3 @@
-# app/core/exceptions.py
-
 from fastapi import HTTPException, status
 
 class APIError(HTTPException):

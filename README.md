@@ -56,9 +56,12 @@ cd konecto-project
 Crea y activa un entorno virtual:
 
 python -m venv .venv
-# macOS/Linux: source .venv/bin/activate
-# Windows (CMD): .venv\Scripts\activate
-# Windows (PowerShell): .\.venv\Scripts\Activate.ps1
+# macOS/Linux:
+source .venv/bin/activate
+# Windows (CMD):
+.venv\Scripts\activate
+# Windows (PowerShell):
+.\.venv\Scripts\Activate.ps1
 
 Instala dependencias:
 
@@ -69,7 +72,7 @@ Crea un archivo .env en la raíz del proyecto y añade tu clave API de OpenAI:
 
 OPENAI_API_KEY="sk-tu_clave_api_de_openai_aqui"
 
-***Uso***
+Uso
 Iniciar el Microservicio
 uvicorn app.main:app --reload
 
@@ -86,7 +89,11 @@ Parámetros: files (múltiples archivos PDF).
 
 Ejemplo curl:
 
-curl -X 'POST' 'http://127.0.0.1:8000/api/ingest' -H 'accept: application/json' -H 'Content-Type: multipart/form-data' -F 'files=@./path/to/your/document.pdf'
+curl -X 'POST' \
+  'http://127.0.0.1:8000/api/ingest' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'files=@./path/to/your/document.pdf'
 
 POST /api/query
 Descripción: Consulta documentos ingestados.
@@ -95,7 +102,13 @@ Parámetros: query (string).
 
 Ejemplo curl:
 
-curl -X 'POST' 'http://127.0.0.1:8000/api/query' -H 'accept: application/json' -H 'Content-Type: application/json' -d '{ "query": "¿Qué es Git Status y para qué se utiliza?" }'
+curl -X 'POST' \
+  'http://127.0.0.1:8000/api/query' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "query": "¿Qué es Git Status y para qué se utiliza?"
+}'
 
 Respuesta esperada:
 
@@ -115,4 +128,22 @@ Descripción: Elimina todos los documentos de ChromaDB. ¡Advertencia!: Irrevers
 
 Ejemplo curl:
 
-curl -X 'POST' 'http://127.0.0.1:8000/api/clear_db' -H 'accept: application/json' -H 'Content-Type: application/json' -d ''
+curl -X 'POST' \
+  'http://127.0.0.1:8000/api/clear_db' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d ''
+
+Contribución
+Haz un "fork" del repositorio.
+
+Crea una nueva rama (git checkout -b feature/tu-funcionalidad).
+
+Haz tus commits (git commit -m "feat: nueva funcionalidad").
+
+Envía tus cambios (git push origin feature/tu-funcionalidad).
+
+Abre un Pull Request.
+
+Licencia
+Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.

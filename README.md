@@ -16,6 +16,8 @@ Gestión de Datos: Endpoint para limpiar la base de datos vectorial de ChromaDB.
 API RESTful: Construido con FastAPI, incluye documentación interactiva (Swagger UI).
 
 Estructura del Proyecto
+El proyecto sigue una estructura modular para facilitar la organización y el mantenimiento:
+
 konecto-project/
 ├── app/
 │   ├── api/

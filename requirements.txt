@@ -1,8 +1,13 @@
 fastapi
 uvicorn
-langchain
+langchain>=0.2.5           # O la última versión estable que encuentres sin la CVE
+langchain-openai
+langchain-community>=0.2.5 # O la última versión estable que encuentres sin la CVE (¡especialmente esta por SQL Injection!)
+langchain-text-splitters
+langchain-core
 openai
 chromadb
 pypdf
 python-multipart
 python-dotenv
+pydantic>=2.0

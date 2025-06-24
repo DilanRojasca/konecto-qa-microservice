@@ -20,7 +20,6 @@ class QueryRequest(BaseModel):
     Espera una cadena de texto que representa la pregunta del usuario.
     """
     # Pydantic 2 infiere que 'query' es requerido.
-    # Nota: Aquí perdemos min_length y example del Field anterior.
     query: str = Field(
         default=...,
         min_length=1,
@@ -33,17 +32,17 @@ class Source(BaseModel):
     """
     document: str = Field(
         ...,
-        examples=["git-cheat-sheet-education.pdf"], # Actualizado a examples
+        examples=["git-cheat-sheet-education.pdf"],
         description="Nombre del documento original de donde se obtuvo la información."
     )
     page: Optional[int] = Field(
         None,
-        examples=[12], # Actualizado a examples
+        examples=[12], 
         description="Número de página del documento donde se encontró la información."
     )
     snippet: str = Field(
         ...,
-        examples=["relevant text snippet..."], # Actualizado a examples
+        examples=["relevant text snippet..."],
         description="Fragmento de texto relevante extraído del documento."
     )
 
@@ -53,10 +52,9 @@ class QueryResponse(BaseModel):
     Esquema para la respuesta de una consulta.
     Contiene la respuesta generada por el LLM y las fuentes utilizadas.
     """
-    # *** CORRECCIÓN AQUÍ ***: Cambiar 'response' a 'answer'
     answer: str = Field(
         default=...,
-        examples=["Según los documentos, el proceso de ingesta implica..."], # Actualizado a examples
+        examples=["Según los documentos, el proceso de ingesta implica..."], 
         description="La respuesta generada por el modelo a la pregunta del usuario."
     )
     sources: List[Source] = Field(
